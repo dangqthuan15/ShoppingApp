@@ -68,7 +68,7 @@ public class CartRepo {
 
         List<CartItem> cartItemList = new ArrayList<>(mutableCart.getValue());
 
-        CartItem updatedItem = new CartItem(cartItem.getProduct(), quantity);
+        CartItem updatedItem = new CartItem(cartItem.getProduct(),quantity);
         cartItemList.set(cartItemList.indexOf(cartItem), updatedItem);
 
         mutableCart.setValue(cartItemList);

@@ -32,7 +32,7 @@ public class OrderFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_order, container, false);
-        fragmentOrderBinding = FragmentOrderBinding.inflate(inflater, container, false);
+        fragmentOrderBinding = FragmentOrderBinding.inflate(inflater,container, false);
         return fragmentOrderBinding.getRoot();
     }
 

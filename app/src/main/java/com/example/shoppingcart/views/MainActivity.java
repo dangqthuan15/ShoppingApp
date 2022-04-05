@@ -75,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 onOptionsItemSelected(menuItem);
             }
         });
-
-
         return true;
     }
 

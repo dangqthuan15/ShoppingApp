@@ -5,6 +5,7 @@
     android:background="?attr/selectableItemBackground"
     android:padding="16dp"
     android:focusable="true"
+
     android:clipToPadding="false"
     >
 
@@ -19,7 +20,7 @@
         android:id="@+id/cart_badge_text_view"
         android:layout_width="18dp"
         android:layout_height="18dp"
-        android:text="5"
+        android:text="2"
         android:textColor="@color/colorWhite"
         android:background="@drawable/badge_shape"
         android:layout_gravity="top|end"

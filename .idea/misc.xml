@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/activity_main.xml" value="0.209375" />
-        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/cart_row.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/drawable/badge_shape.xml" value="0.1935" />
+        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/drawable/button.xml" value="0.138" />
+        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/cart_action_item.xml" value="0.1" />
+        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/cart_row.xml" value="0.33" />
+        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/fragment_cart.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/fragment_order.xml" value="0.209375" />
         <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/fragment_product_detail.xml" value="0.1" />
-        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/fragment_shop.xml" value="0.209375" />
-        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/shop_row.xml" value="0.1" />
+        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/fragment_shop.xml" value="0.25" />
+        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/shop_row.xml" value="0.25" />
+        <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/menu/main_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

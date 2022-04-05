@@ -72,8 +72,8 @@ public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterf
     public void addItem(Product product) {
         boolean isAdded = shopViewModel.addItemToCart(product);
         if (isAdded) {
-            Snackbar.make(requireView(), product.getName() + " added to cart.", Snackbar.LENGTH_LONG)
-                    .setAction("Checkout", new View.OnClickListener() {
+            Snackbar.make(requireView(), product.getName() + " đã thêm vào giỏ ", Snackbar.LENGTH_LONG)
+                    .setAction("Giỏ hàng", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             navController.navigate(R.id.action_shopFragment_to_cartFragment);
@@ -81,7 +81,7 @@ public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterf
                     })
                     .show();
         } else {
-            Snackbar.make(requireView(), "Already have the max quantity in cart.", Snackbar.LENGTH_LONG)
+            Snackbar.make(requireView(), "Đủ số lượng tối đa trong giỏ.", Snackbar.LENGTH_LONG)
                     .show();
         }
     }

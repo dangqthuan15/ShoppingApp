@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thanks for your order."
+        android:text="Đặt hàng thành công."
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         />
 
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:text="Continue Shopping"
+        android:text="Tiếp tục mua hàng"
         />
 
 </LinearLayout>

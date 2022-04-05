@@ -16,7 +16,7 @@ import com.example.shoppingcart.models.CartItem;
 public class CartListAdapter extends ListAdapter<CartItem, CartListAdapter.CartVH> {
 
     private CartInterface cartInterface;
-    public CartListAdapter(CartInterface cartInterface) {
+    public  CartListAdapter(CartInterface cartInterface){
         super(CartItem.itemCallback);
         this.cartInterface = cartInterface;
     }
@@ -25,7 +25,7 @@ public class CartListAdapter extends ListAdapter<CartItem, CartListAdapter.CartV
     @Override
     public CartVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        CartRowBinding cartRowBinding = CartRowBinding.inflate(layoutInflater, parent, false);
+        CartRowBinding cartRowBinding = CartRowBinding.inflate(layoutInflater, parent,false);
         return new CartVH(cartRowBinding);
     }
 
@@ -53,7 +53,7 @@ public class CartListAdapter extends ListAdapter<CartItem, CartListAdapter.CartV
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     int quantity = position + 1;
-                    if (quantity == getItem(getAdapterPosition()).getQuantity()) {
+                    if(quantity == getItem(getAdapterPosition()).getQuantity()){
                         return;
                     }
                     cartInterface.changeQuantity(getItem(getAdapterPosition()), quantity);
@@ -69,6 +69,6 @@ public class CartListAdapter extends ListAdapter<CartItem, CartListAdapter.CartV
 
     public interface CartInterface {
         void deleteItem(CartItem cartItem);
-        void changeQuantity(CartItem cartItem, int quantity);
+        void changeQuantity(CartItem cartItem,int quantity);
     }
 }

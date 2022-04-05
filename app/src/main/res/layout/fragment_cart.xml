@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="8dp"
-            android:text="Total: $ 26"
+            android:text="Total: VND 0"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
         <Button
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="8dp"
-            android:text="Place Order"
+            android:text="Đặt hàng"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
     </LinearLayout>
