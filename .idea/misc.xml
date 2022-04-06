@@ -3,6 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/drawable/btn_check.xml" value="0.1565" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/drawable/btn_checkin.xml" value="0.1" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/drawable/btn_ok.xml" value="0.1565" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/drawable/button.xml" value="0.1565" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/activity_check_in.xml" value="0.1" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/activity_check_in_view.xml" value="0.17" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/activity_intro.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/activity_loading_view.xml" value="0.11666666666666667" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/activity_main.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/cart_action_item.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/cart_row.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/fragment_cart.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/fragment_error_dialog.xml" value="0.11666666666666667" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/fragment_order.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/fragment_product_detail.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/fragment_shop.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/intro.xml" value="0.209375" />
+        <entry key="..\:/Users/OS/AndroidStudioProjects/ShoppingApp/app/src/main/res/layout/shop_row.xml" value="0.209375" />
         <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/drawable/badge_shape.xml" value="0.1935" />
         <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/drawable/button.xml" value="0.138" />
         <entry key="..\:/Users/OS/Downloads/ShoppingApp/app/src/main/res/layout/activity_main.xml" value="0.25" />

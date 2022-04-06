@@ -10,5 +10,9 @@
 
         <item name="fontFamily">@font/open_sans</item>
     </style>
+    <style name="TransparentDialogTheme" parent="@android:style/Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 
 </resources>
