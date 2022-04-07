@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:text="@{product.name}"
             android:layout_gravity="center"
+            android:gravity="center"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
         <TextView

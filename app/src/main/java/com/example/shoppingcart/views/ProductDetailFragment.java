@@ -14,9 +14,11 @@ import android.view.ViewGroup;
 import com.example.shoppingcart.R;
 import com.example.shoppingcart.adapters.ShopListAdapter;
 import com.example.shoppingcart.databinding.FragmentProductDetailBinding;
+import com.example.shoppingcart.models.Product;
 import com.example.shoppingcart.viewmodels.ShopViewModel;
+import com.google.android.material.snackbar.Snackbar;
 
-public class ProductDetailFragment extends Fragment {
+public class ProductDetailFragment extends Fragment implements ShopListAdapter.ShopInterface {
 
     FragmentProductDetailBinding fragmentProductDetailBinding;
     ShopViewModel shopViewModel;
@@ -39,5 +41,13 @@ public class ProductDetailFragment extends Fragment {
 
         shopViewModel = new ViewModelProvider(requireActivity()).get(ShopViewModel.class);
         fragmentProductDetailBinding.setShopViewModel(shopViewModel);
+    }
+
+    public void addItem(Product product) {
+    }
+
+    @Override
+    public void onItemClick(Product product) {
+
     }
 }

@@ -13,6 +13,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -20,6 +22,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.shoppingcart.R;
@@ -30,6 +33,8 @@ import com.example.shoppingcart.models.Photo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import jp.tagcast.bleservice.TGCErrorCode;
 import jp.tagcast.bleservice.TGCScanListener;
@@ -46,6 +51,8 @@ public class CheckInActivity extends AppCompatActivity implements ActivityCompat
     private ViewPager viewPager;
     private CircleIndicator circleIndicator;
     private PhotoAdapter photoAdapter;
+    private List<Photo> mListPhoto;
+    private Timer mTimer;
     private boolean flgBeacon = false;
     public int mErrorDialogType = ErrorDialogFragment.TYPE_NO;
 
@@ -59,14 +66,14 @@ public class CheckInActivity extends AppCompatActivity implements ActivityCompat
         viewPager = findViewById(R.id.viewpagger);
         circleIndicator = findViewById(R.id.circle_indicator);
 
-        photoAdapter = new PhotoAdapter(CheckInActivity.this,getListPhoto());
+        mListPhoto = getListPhoto();
+        photoAdapter = new PhotoAdapter(CheckInActivity.this,mListPhoto);
         viewPager.setAdapter(photoAdapter);
         circleIndicator.setViewPager(viewPager);
         photoAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
-
-
-
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+
+        autoSildeImage();
 
         btncheckin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -209,6 +216,42 @@ public class CheckInActivity extends AppCompatActivity implements ActivityCompat
 
         tgcAdapter.setTGCScanListener(mTgcScanListener);
 
+    }
+
+    private void autoSildeImage() {
+        if (mListPhoto == null || mListPhoto.isEmpty()||viewPager == null){
+            return;
+        }
+        if(mTimer == null){
+            mTimer = new Timer();
+        }
+        mTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        int currentItem = viewPager.getCurrentItem();
+                        int totalItem = mListPhoto.size() - 1;
+                        if (currentItem < totalItem) {
+                            currentItem++;
+                            viewPager.setCurrentItem(currentItem);
+                        } else {
+                            viewPager.setCurrentItem(0);
+                        }
+                    }
+                });
+            }
+        },500,3000);
+        }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mTimer != null){
+            mTimer.cancel();
+            mTimer = null;
+        }
     }
 
     private List<Photo> getListPhoto() {
