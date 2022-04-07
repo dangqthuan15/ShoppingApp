@@ -72,4 +72,7 @@ dependencies {
 
     //Lottie Animation
     implementation 'com.airbnb.android:lottie:3.7.0'
+
+    //Indicator
+    implementation 'me.relex:circleindicator:2.1.6'
 }

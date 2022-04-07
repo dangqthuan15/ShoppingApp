@@ -1,19 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
+android:background="#BDBDBD"
 tools:context=".views.CheckInActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FF5722"
+        >
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/viewpagger"/>
+
+        <me.relex.circleindicator.CircleIndicator
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:id="@+id/circle_indicator"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
     <Button
-        android:id="@+id/btnCheckIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:background="@drawable/btn_checkin" />
+        android:id="@+id/btncheckin"
+        android:text="Bấm đi"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/progress_bar"/>
+
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="20dp"/>
 
 
 
-</LinearLayout>
+
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.shoppingcart.views;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.viewpager.widget.ViewPager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,14 +20,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.shoppingcart.R;
+import com.example.shoppingcart.adapters.PhotoAdapter;
 import com.example.shoppingcart.adapters.ShopListAdapter;
 import com.example.shoppingcart.databinding.FragmentShopBinding;
+import com.example.shoppingcart.models.Photo;
 import com.example.shoppingcart.models.Product;
 import com.example.shoppingcart.viewmodels.ShopViewModel;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import me.relex.circleindicator.CircleIndicator;
 
 public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterface {
 
@@ -34,6 +41,7 @@ public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterf
     private ShopListAdapter shopListAdapter;
     private ShopViewModel shopViewModel;
     private NavController navController;
+
 
     public ShopFragment() {
         // Required empty public constructor
@@ -45,17 +53,16 @@ public class ShopFragment extends Fragment implements ShopListAdapter.ShopInterf
         // Inflate the layout for this fragment
         fragmentShopBinding = FragmentShopBinding.inflate(inflater, container, false);
         return fragmentShopBinding.getRoot();
+
     }
+
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         shopListAdapter = new ShopListAdapter(this);
         fragmentShopBinding.shopRecyclerView.setAdapter(shopListAdapter);
-        fragmentShopBinding.shopRecyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
-        fragmentShopBinding.shopRecyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.HORIZONTAL));
-
         shopViewModel = new ViewModelProvider(requireActivity()).get(ShopViewModel.class);
         shopViewModel.getProducts().observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
             @Override

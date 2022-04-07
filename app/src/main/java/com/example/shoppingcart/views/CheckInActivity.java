@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -11,14 +12,22 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.shoppingcart.R;
+import com.example.shoppingcart.adapters.PhotoAdapter;
+import com.example.shoppingcart.models.Photo;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,10 +37,15 @@ import jp.tagcast.bleservice.TGCState;
 import jp.tagcast.bleservice.TGCType;
 import jp.tagcast.bleservice.TagCast;
 import jp.tagcast.helper.TGCAdapter;
+import me.relex.circleindicator.CircleIndicator;
 
 public class CheckInActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
     Button btncheckin;
     public TGCAdapter tgcAdapter;
+    private ProgressBar progressBar;
+    private ViewPager viewPager;
+    private CircleIndicator circleIndicator;
+    private PhotoAdapter photoAdapter;
     private boolean flgBeacon = false;
     public int mErrorDialogType = ErrorDialogFragment.TYPE_NO;
 
@@ -41,13 +55,46 @@ public class CheckInActivity extends AppCompatActivity implements ActivityCompat
         setContentView(R.layout.activity_check_in_view);
         final Context context = getApplicationContext();
         tgcAdapter = TGCAdapter.getInstance(context);
-        btncheckin = findViewById(R.id.btnCheckIn);
+        btncheckin = findViewById(R.id.btncheckin);
+        viewPager = findViewById(R.id.viewpagger);
+        circleIndicator = findViewById(R.id.circle_indicator);
+
+        photoAdapter = new PhotoAdapter(CheckInActivity.this,getListPhoto());
+        viewPager.setAdapter(photoAdapter);
+        circleIndicator.setViewPager(viewPager);
+        photoAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
+
+
+
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
         btncheckin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btncheckin.setVisibility(View.INVISIBLE);
                 tgcAdapter.setScanInterval(10000);
                 tgcAdapter.startScan();
+
+                final int oneMin = 1 * 10 * 1000;
+
+                new CountDownTimer(oneMin, 1000) {
+                    public void onTick(long millisUntilFinished) {
+                        long finishedSeconds = oneMin - millisUntilFinished+2000;
+                        int total = (int) (((float)finishedSeconds / (float)oneMin) * 100.0);
+                        progressBar.setProgress(total);
+                    }
+                    public void onFinish() {
+                        btncheckin.setVisibility(View.VISIBLE);
+//                        if (flgBeacon == true) {
+
+                            Intent mot = new Intent(CheckInActivity.this, MainActivity.class);
+                            startActivity(mot);
+//                        } else {
+//                            Toast.makeText(CheckInActivity.this, "Quét không thành công, vui lòng thử lại.", Toast.LENGTH_SHORT).show();
+//
+//                        }
+                    } }.start();
+
 
             }
         });
@@ -164,16 +211,28 @@ public class CheckInActivity extends AppCompatActivity implements ActivityCompat
 
     }
 
+    private List<Photo> getListPhoto() {
+        List<Photo> list = new ArrayList<>();
+        list.add(new Photo(R.drawable.img1));
+        list.add(new Photo(R.drawable.img2));
+        list.add(new Photo(R.drawable.img3));
+        return list;
+    }
+
+
     @Override
     protected void onPause() {
         super.onPause();
         tgcAdapter.stopScan();
+
+
     }
     @Override
     protected void onResume() {
         if(checkPermission()) {
             super.onResume();
             tgcAdapter.prepare();
+
         }
     }
 

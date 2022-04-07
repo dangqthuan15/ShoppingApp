@@ -7,19 +7,24 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.shoppingcart.R;
+import com.example.shoppingcart.adapters.PhotoAdapter;
 import com.example.shoppingcart.models.CartItem;
+import com.example.shoppingcart.models.Photo;
 import com.example.shoppingcart.viewmodels.ShopViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController);
         shopViewModel = new ViewModelProvider(this).get(ShopViewModel.class);
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
     @Override
